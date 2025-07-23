@@ -7,11 +7,6 @@ open class LuaBox(val path: String) {
 
     val indexes = hashMapOf<String, LuaValue>()
 
-    init {
-
-
-    }
-
     fun newScript(fileName: String) = LuaScript(fileName, this)
 
     fun addIndex(key: String, value: Any) {

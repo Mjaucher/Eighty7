@@ -19,7 +19,7 @@ public class MinecraftClientMixin {
     )
     private String setTitle(String original) {
 
-        return Mod.INSTANCE.getName();
+        return Mod.INSTANCE.getName() + "-v" + Mod.INSTANCE.getVersion();
     }
 
     @Inject(
@@ -31,6 +31,6 @@ public class MinecraftClientMixin {
 
     public void tick(CallbackInfo ci) {
 
-        ClientTickCallback.Companion.getEVENT().invoker().interact(ci);
+        ClientTickCallback.Companion.getEvent().invoker().interact(ci);
     }
 }

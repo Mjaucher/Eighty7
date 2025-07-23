@@ -9,7 +9,7 @@ fun interface ClientTickCallback {
 
     companion object {
 
-        val EVENT: Event<ClientTickCallback> =
+        val event: Event<ClientTickCallback> =
 
             EventFactory.createArrayBacked(ClientTickCallback::class.java) { listeners ->
 

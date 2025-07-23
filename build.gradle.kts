@@ -34,10 +34,10 @@ dependencies {
     implementation(kotlin("stdlib:$kotlin"))
     implementation(kotlin("stdlib-jdk8:$kotlin"))
 
+    implementation("org.reflections:reflections:0.10.2")
+
     implementation("org.luaj:luaj-jme:3.0.1")
     implementation("org.luaj:luaj-jse:3.0.1")
-
-    implementation("com.github.therealbush:eventbus-kotlin:v1.0.1")
 }
 
 tasks {
