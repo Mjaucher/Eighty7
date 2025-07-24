@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "luabox",
-  "version": "25.2",
+  "id": "eighty7",
+  "version": "25.3",
 
-  "name": "LuaBox",
+  "name": "Eighty7",
   "authors": ["RainySpring87"],
 
   "environment": "*",
@@ -11,12 +11,12 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "luabox.Initializer"
+        "value": "eighty7.Initializer"
       }
     ]
   },
   "mixins": [
-    "luabox.mixins.json"
+    "eighty7.mixins.json"
   ],
 
   "depends": {
