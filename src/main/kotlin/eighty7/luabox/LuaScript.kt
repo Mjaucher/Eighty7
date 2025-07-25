@@ -1,10 +1,7 @@
 package eighty7.luabox
 
-import eighty7.event.lua.LuaPacketEvent
-import eighty7.event.lua.LuaSendChatMessageEvent
 import org.luaj.vm2.Globals
 import org.luaj.vm2.LoadState
-import org.luaj.vm2.LuaFunction
 import org.luaj.vm2.LuaValue
 import org.luaj.vm2.compiler.LuaC
 import org.luaj.vm2.lib.Bit32Lib
@@ -83,22 +80,6 @@ class LuaScript(
         } catch (exception: IOException) {
 
             exception.printStackTrace()
-        }
-    }
-
-    fun event(type: String, luaFunction: LuaFunction) {
-
-        val events = listOf(
-
-            LuaPacketEvent(),
-            LuaSendChatMessageEvent()
-        )
-
-
-        events.forEach {
-
-            if (type == it.type)
-                it.invoke(luaFunction)
         }
     }
 

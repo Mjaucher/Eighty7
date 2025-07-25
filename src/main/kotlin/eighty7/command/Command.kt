@@ -2,20 +2,14 @@ package eighty7.command
 
 import eighty7.util.ChatUtil
 
-abstract class Command {
+abstract class Command(
 
-    @Target(AnnotationTarget.TYPE, AnnotationTarget.CLASS)
-    @Retention(AnnotationRetention.RUNTIME)
-    annotation class Info(
-        val name: String,
-        val description: String,
-        val valuesCount: Int,
-        val status: CommandStatus,
-        val available: String
-    )
-
-    private val annotation =
-        javaClass.getAnnotation(Info::class.java)
+    val name: String,
+    val description: String,
+    val valuesCount: Int,
+    val status: CommandStatus,
+    val available: String
+) {
 
     open fun runStringCommand(
         values: ArrayList<String>
@@ -31,11 +25,11 @@ abstract class Command {
 
     abstract fun helpComments(): Array<String>
 
-    fun name() = annotation.name
-    fun description() = annotation.description
-    fun valuesCount() = annotation.valuesCount
-    fun status() = annotation.status
-    fun available() = annotation.available
+    fun name() = name
+    fun description() = description
+    fun valuesCount() = valuesCount
+    fun status() = status
+    fun available() = available
 
     open fun error(
         reason: String

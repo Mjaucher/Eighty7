@@ -9,15 +9,14 @@ import eighty7.util.FileUtil
 import java.nio.file.Files
 import java.nio.file.Paths
 
-@Command.Info(
+object LuaCommand: Command(
+
     name = "lua",
     description = "Command for interacting with scripts.",
     valuesCount = 2,
     status = CommandStatus.String,
     available = "run, out, create, del -> 'script name'; get -> list"
-)
-
-object LuaCommand: Command() {
+) {
 
     var scriptsArrayList = ArrayList<String>()
 

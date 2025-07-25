@@ -2,15 +2,14 @@ package eighty7.command.commands
 
 import eighty7.command.*
 
-@Command.Info(
+object HelpCommand: Command(
+
     name = "help",
     description = "This command gives information about the mod!",
     valuesCount = 1,
     status = CommandStatus.String,
     available = "list or 'command name'"
-)
-
-object HelpCommand: Command() {
+) {
 
     override fun runStringCommand(
         values: ArrayList<String>

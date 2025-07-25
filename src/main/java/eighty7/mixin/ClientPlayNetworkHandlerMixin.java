@@ -1,6 +1,6 @@
 package eighty7.mixin;
 
-import eighty7.event.SendChatMessageCallback;
+import eighty7.callback.SendChatMessageCallback;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

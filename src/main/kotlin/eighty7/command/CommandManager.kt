@@ -7,6 +7,13 @@ class CommandManager {
     companion object {
 
         val commandArray: ArrayList<Command> =
-            arrayListOf(HelpCommand, TestCommand, LuaCommand)
+
+            arrayListOf(
+
+                HelpCommand,
+                TestCommand,
+                LuaCommand,
+                ModuleCommand
+            )
     }
 }

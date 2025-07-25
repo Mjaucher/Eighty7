@@ -5,7 +5,7 @@ import eighty7.command.CommandManager;
 import eighty7.util.ChatUtil;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import eighty7.event.PacketCallback;
+import eighty7.callback.PacketCallback;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.ChatMessageC2SPacket;
