@@ -7,17 +7,13 @@ plugins {
     java
 }
 
-group = "luabox"
-version = "25.2"
+group = "eighty7"
+version = "25.3"
 
 val kotlin = "2.2.0"
 val minecraft = "1.21.8"
 
 repositories {
-
-    maven {
-        url = uri("https://jitpack.io")
-    }
 
     mavenCentral()
 }
@@ -33,8 +29,6 @@ dependencies {
 
     implementation(kotlin("stdlib:$kotlin"))
     implementation(kotlin("stdlib-jdk8:$kotlin"))
-
-    implementation("org.reflections:reflections:0.10.2")
 
     implementation("org.luaj:luaj-jme:3.0.1")
     implementation("org.luaj:luaj-jse:3.0.1")

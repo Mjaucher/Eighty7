@@ -5,8 +5,11 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ClientConnectionMixin",
-    "ClientPlayNetworkHandlerMixin",
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "ChatInputSuggestorMixin",
+    "ChatScreenMixin",
+
+    "accessor.ChatScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

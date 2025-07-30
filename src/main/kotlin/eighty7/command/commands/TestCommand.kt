@@ -1,22 +1,21 @@
 package eighty7.command.commands
 
-import eighty7.command.*
+import com.mojang.brigadier.CommandDispatcher
+import com.mojang.brigadier.builder.LiteralArgumentBuilder
+import eighty7.util.ChatUtil
+import net.minecraft.command.CommandSource
 
-object TestCommand: Command(
+object TestCommand {
 
-    name = "test",
-    description = "",
-    valuesCount = 4,
-    status = CommandStatus.Numeric,
-    available = ""
-) {
+    fun register(dispatcher: CommandDispatcher<CommandSource>) {
 
-    override fun runNumericCommand(
-        values: ArrayList<Double>
-    ) {
+        dispatcher.register(
 
+            LiteralArgumentBuilder.literal<CommandSource>("test").executes {
+
+                ChatUtil.clientMessage("Test!", true)
+                1
+            }
+        )
     }
-
-    override fun helpComments(): Array<String> =
-        arrayOf("test is a test")
 }

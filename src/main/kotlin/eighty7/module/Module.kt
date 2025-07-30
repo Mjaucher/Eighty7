@@ -8,6 +8,8 @@ abstract class Module(
 ) {
 
     var activated = false
+    // https://github.com/LWJGL/lwjgl/blob/master/src/java/org/lwjgl/input/Keyboard.java
+    var key = 0
 
     open fun invoke() {}
 }

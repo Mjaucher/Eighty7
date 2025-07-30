@@ -34,7 +34,7 @@ public class MinecraftClientMixin {
 
         ClientTickCallback.Companion.getEvent().invoker().interact(ci);
 
-        ModuleManager.Companion.getModuleArray().forEach(module -> {
+        ModuleManager.INSTANCE.getModuleArray().forEach(module -> {
 
             if (module.getActivated() && Mod.Companion.getMinecraft().world != null)
 

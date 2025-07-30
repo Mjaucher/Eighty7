@@ -1,51 +1,56 @@
 package eighty7.command.commands
 
-import eighty7.command.*
+import com.mojang.brigadier.CommandDispatcher
+import com.mojang.brigadier.arguments.StringArgumentType
+import com.mojang.brigadier.builder.LiteralArgumentBuilder
+import com.mojang.brigadier.builder.RequiredArgumentBuilder
+import com.mojang.brigadier.context.CommandContext
 import eighty7.module.ModuleManager
 import eighty7.util.ChatUtil
+import net.minecraft.command.CommandSource
 
-object ModuleCommand: Command(
+object ModuleCommand {
 
-    name = "module",
-    description = "Command to enable and disable modules.",
-    valuesCount = 1,
-    status = CommandStatus.String,
-    available = "'module name'"
-) {
+    fun register(dispatcher: CommandDispatcher<CommandSource>) {
 
-    override fun runStringCommand(
-        values: ArrayList<String>
-    ) {
+        dispatcher.register(module()
 
-        if (values[0] == "list") {
-
-            ModuleManager.moduleArray.forEach {
-
-                ChatUtil.clientMessage(
-                    "${it.name}: ${if (it.activated) "§aActivated" else "§cDisabled"}",
-                    false
-                )
-            }
-
-            return
-        }
-
-        ModuleManager.moduleArray.forEach {
-
-            if (values[0] == it.name) {
-
-                it.activated = !it.activated
-
-            } else {
-
-                error("Module \"${values[0]}\" does not exist!")
-            }
-        }
+            .executes {
+                context -> execute(context)
+            })
     }
 
-    override fun helpComments(): Array<String> =
-        arrayOf(
-            "Write the name of the module to enable and disable it.",
-            "Or \"list\" to get a list of modules."
+    fun module() =
+
+        LiteralArgumentBuilder.literal<CommandSource>("module").then(
+            RequiredArgumentBuilder.argument<CommandSource, String>(
+                "name", StringArgumentType.greedyString()).suggests { _, builder ->
+
+                for (module in ModuleManager.moduleArray) {
+
+                    builder.suggest(module.name)
+                }
+
+                builder.buildFuture()
+
+            })
+
+    private fun execute(context: CommandContext<CommandSource>): Int {
+
+        val input = StringArgumentType.getString(context, "name").lowercase()
+
+        if (ModuleManager.matchModule(input) == null) {
+
+            ChatUtil.clientMessage("§cModule \"$input\" not found.", true)
+
+            return 0
+        }
+
+        ModuleManager.activateModule(
+
+            ModuleManager.matchModule(input)!!
         )
+
+        return 1
+    }
 }

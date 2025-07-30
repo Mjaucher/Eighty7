@@ -7,7 +7,7 @@ import eighty7.module.ModuleCategory
 import net.minecraft.client.gui.screen.DeathScreen
 import net.minecraft.util.ActionResult
 
-class InstantRespawn: Module(
+object InstantRespawn: Module(
 
     name = "instant.respawn",
     description = "Instantly respawns ignoring the death screen.",

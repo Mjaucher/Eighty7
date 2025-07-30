@@ -16,7 +16,7 @@ class ChatUtil {
             if (withPrefix) {
 
                 val prefix = Text.literal(
-                    "[" + Mod.name + "-v" + Mod.version + "]"
+                    "[" + Mod.name + "-v" + Mod.version + "] "
                 )
 
                 result.append(prefix)
